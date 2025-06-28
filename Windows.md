@@ -1,84 +1,80 @@
-# 📝 Guida: Ripristinare il Menu Contestuale Classico (Windows 10) su Windows 11
+# 📝 Guide: Restore Classic Context Menu (Windows 10 Style) on Windows 11
 
-## ✅ Obiettivo
+## ✅ Goal
 
-Visualizzare **sempre il menu contestuale classico** (quello completo con "Apri con", "Invia a", ecc.) quando fai clic col tasto destro su file o cartelle in **Windows 11**, senza dover cliccare ogni volta su **"Mostra altre opzioni"**.
-
----
-
-## 🛠️ Cosa abbiamo fatto?
-
-Abbiamo aggiunto una **chiave nel Registro di sistema (regedit)** per disattivare il nuovo menu di Windows 11 e forzare il sistema a mostrare **direttamente il menu classico** (quello usato in Windows 10).
-
-Questa modifica sfrutta una “scorciatoia” riconosciuta da Windows per **svuotare il handler predefinito del menu contestuale**.
+Always display the **classic context menu** (the full menu with "Open with", "Send to", etc.) when right-clicking files or folders in **Windows 11**, without needing to click **"Show more options"** every time.
 
 ---
 
-## 🧪 Procedura Dettagliata
+## 🛠️ How it works
 
-### 1. Apri il registro di sistema
+We add a **Registry key (regedit)** to disable the Windows 11 context menu and force the system to show the **classic menu directly** (same as in Windows 10).
 
-* Premi `Win + R`
-* Scrivi `regedit` → premi **Invio**
+This tweak uses a Windows-recognized “shortcut” to **clear the default context menu handler**, reverting to the older behavior.
 
-### 2. Vai a questa chiave
+---
+
+## 🧪 Step-by-Step Procedure
+
+### 1. Open Registry Editor
+
+- Press `Win + R`
+- Type `regedit` → press **Enter**
+
+### 2. Navigate to this key
 
 ```text
 HKEY_CURRENT_USER\Software\Classes\CLSID
 ```
 
-### 3. Crea una nuova chiave
+### 3. Create a new key
 
-* Clic destro su `CLSID` → **Nuovo > Chiave**
-* Nominala esattamente così:
+- Right-click on `CLSID` → **New > Key**
+- Name it exactly:
 
 ```text
 {86ca1aa0-34aa-4e8b-a509-50c905bae2a2}
 ```
 
-### 4. Crea una sotto-chiave
+### 4. Create a subkey
 
-* Clic destro su questa nuova chiave → **Nuovo > Chiave**
-* Nominala:
+- Right-click on this new key → **New > Key**
+- Name it:
 
 ```text
 InprocServer32
 ```
 
-### 5. Imposta il valore predefinito vuoto
+### 5. Set the default value to empty
 
-* Seleziona `InprocServer32`
-* A destra, fai doppio clic su **(Predefinito)**
-* **Non scrivere nulla**, lascia il campo vuoto → clicca **OK**
+- Select `InprocServer32`
+- On the right, double-click **(Default)**
+- **Leave it blank**, do not enter anything → click **OK**
 
-### 6. Riavvia il computer
-
-Oppure, per applicare subito:
-
-* Premi `Ctrl + Shift + Esc` per aprire il **Task Manager**
-* Trova **Esplora risorse (Windows Explorer)** → clic destro → **Riavvia**
+### 6. Restart your computer
 
 ---
 
-## ✅ Risultato
+## ✅ Result
 
-Ora ogni clic destro aprirà **direttamente il menu classico**, senza passare per “Mostra altre opzioni”.
+Now every right-click will open the **classic context menu directly**, without needing to select “Show more options”.
 
 ---
 
-## 🔄 Come tornare indietro (ripristinare menu moderno)
+## 🔄 How to revert (restore modern menu)
 
-1. Apri di nuovo `regedit`
-2. Vai a:
+1. Open `regedit` again
 
-    ```text
-    HKEY_CURRENT_USER\Software\Classes\CLSID
-    ```
+2. Navigate to:
 
-3. Elimina la chiave:
+   ```text
+   HKEY_CURRENT_USER\Software\Classes\CLSID
+   ```
 
-    ```text
-    {86ca1aa0-34aa-4e8b-a509-50c905bae2a2}
-    ```
+3. Delete the key:
 
-4. Riavvia il computer o Esplora risorse
+   ```text
+   {86ca1aa0-34aa-4e8b-a509-50c905bae2a2}
+   ```
+
+4. Restart your computer
