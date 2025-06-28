@@ -1,4 +1,4 @@
-# Useful Keyboard Shortcuts for Windows, VS Code, and Google Chrome
+# Useful Keyboard Shortcuts for Windows, Google Chrome, VS Code
 
 ## Windows Window Management Shortcuts
 
@@ -13,17 +13,6 @@
 | Snap window to top-right corner        | `Win` + `→` then `↑`| Move window to top-right quarter of screen     |
 | Snap window to bottom-right corner     | `Win` + `→` then `↓`| Move window to bottom-right quarter of screen  |
 | Cycle through open windows             | `Alt` + `Tab`       | Switch between open windows/apps               |
-
----
-
-## VS Code Window and Editor Management Shortcuts
-
-| Action                                 | Shortcut (Windows)        | Description                                    |
-|----------------------------------------|---------------------------|------------------------------------------------|
-| Open/close integrated terminal         | `Ctrl` + `J`              | Show or hide the terminal panel                |
-| Toggle sidebar visibility              | `Ctrl` + `B`              | Show or hide the sidebar                       |
-| Split editor (vertical)                | `Ctrl` + `\`              | Split the current editor into two side-by-side |
-| Close current editor                   | `Ctrl` + `W`              | Close the active editor                        |
 
 ---
 
@@ -48,3 +37,28 @@
 | Open JavaScript Console                | `Ctrl` + `Shift` + `J`    | Open JS console inside DevTools                |
 | Inspect Element                        | `Ctrl` + `Shift` + `C`    | Toggle element inspector mode                  |
 | Focus Address Bar (Omnibox)            | `Ctrl` + `L`              | Focus the URL bar                              |
+
+---
+
+## VS Code Window and Editor Management Shortcuts
+
+| Action                                 | Shortcut (Windows)        | Description                                    |
+|----------------------------------------|---------------------------|------------------------------------------------|
+| Open/close integrated terminal         | `Ctrl` + `J`              | Show or hide the terminal panel                |
+| Toggle sidebar visibility              | `Ctrl` + `B`              | Show or hide the sidebar                       |
+| Split editor (vertical)                | `Ctrl` + `\`              | Split the current editor into two side-by-side |
+| Close current editor                   | `Ctrl` + `W`              | Close the active editor                        |
+| Find in current file                   | `Ctrl` + `F`              | Search text in the current file                |
+| Replace in current file                | `Ctrl` + `H`              | Find and replace text in the current file      |
+| Search across all files                | `Ctrl` + `Shift` + `F`    | Search in the entire project                   |
+
+* You can enable regex search by clicking the `.*` icon in the search panel.
+
+### 🔎 Regex in VS Code
+
+#### Example: Convert all Markdown bullet points from `*` to `-`
+
+> * **Find**: `^\*`
+> * **Replace**: `-`
+
+This avoids matching other `*` characters, like the ones used for **bold**. Regular expressions are more precise than just using the `Aa` (case-sensitive) or `ab` (whole word) options.

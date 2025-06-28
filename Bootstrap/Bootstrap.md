@@ -88,6 +88,7 @@ In your main file, import the styles:
 
 ```tsx
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 ```
 
@@ -136,6 +137,7 @@ import "bootstrap/scss/bootstrap.scss";
 ```tsx
 // src/main.tsx
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 <h1 className="text-center p-4 text-primary">Welcome</h1>
@@ -149,6 +151,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 ```tsx
 // src/main.tsx
 import "./styles/custom-bootstrap.scss";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 ```
 

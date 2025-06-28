@@ -36,7 +36,7 @@
 
 5. Utilities and Templates:
    - [Helper Classes and Utilities](./Utilities/HelpersUtilities.md)  
-   Overview of Bootstrap’s utility classes for spacing, display, colors, and more.
+   Overview of Bootstrap’s helper classes and utility system. Learn the difference between helpers and utilities, and how to use them in practice.
 
    - [Themes and Templates](./Utilities/ThemesTemplates.md)  
-   Customizing Bootstrap with themes, Sass variables, and ready-made templates to jumpstart your projects.
+   Discover Bootstrap’s official examples and themes to speed up your Bootstrap development.
