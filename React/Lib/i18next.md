@@ -4,6 +4,17 @@ This guide explains how to set up multilingual support in a React project using 
 
 ---
 
+## 📚 Table of Contents
+
+1. [Installation](#1-installation)
+2. [Project Structure for Translations](#2-project-structure-for-translations)
+3. [Create the i18n Initialization File](#3-create-the-i18n-initialization-file)
+4. [Import `i18n.ts` in Your Entry Point](#4-import-i18nts-in-your-entry-point)
+5. [Using Translations in Components](#5-using-translations-in-components)
+6. [Translating Rich Text with `<Trans>`](#translating-rich-text-with-trans)
+
+---
+
 ## 1. Installation
 
 Run the following command to install the necessary packages:
@@ -11,6 +22,18 @@ Run the following command to install the necessary packages:
 ```bash
 npm install i18next react-i18next i18next-http-backend i18next-browser-languagedetector
 ```
+
+- **`i18next`**
+  Core internationalization framework that handles translation loading, language switching, pluralization, and more.
+
+- **`react-i18next`**
+  React bindings for i18next. Provides the `useTranslation` hook and components like `<Trans>` for seamless integration in React.
+
+- **`i18next-http-backend`**
+  Backend plugin for loading translation files via HTTP (e.g., from the `public/locales` folder). Enables lazy loading of namespaces.
+
+- **`i18next-browser-languagedetector`**
+  Detects the user’s preferred language automatically (e.g., from browser settings, query string, localStorage).
 
 ---
 
@@ -72,7 +95,6 @@ i18n
     fallbackLng: "en",
     supportedLngs: ["en", "it"],
     debug: true,
-    defaultNS: "common", // default namespace if none specified
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
@@ -123,3 +145,40 @@ export default Navbar;
 ```
 
 You can use multiple namespaces by calling `useTranslation("namespace")` with the appropriate JSON file name.
+
+---
+
+## Translating Rich Text with `<Trans>`
+
+Sometimes you need to translate text that contains React elements like links, bold text, or other components inside the translation string. For this purpose, `react-i18next` provides the `<Trans>` component.
+
+### When to use `<Trans>` vs `t()`
+
+- Use `t()` for simple strings without embedded React components.
+- Use `<Trans>` when the translated text includes HTML tags or React components that should be rendered.
+
+### Example: Using `<Trans>` for rich text translation
+
+```json
+{
+  "welcomeText": "Welcome to <strong>Recipes</strong>. Visit our <link>homepage</link>."
+}
+```
+
+React component:
+
+```tsx
+import { Trans } from "react-i18next";
+
+function WelcomeMessage() {
+  return (
+    <Trans i18nKey="welcomeText" components={{ strong: <strong />, link: <a href="/" /> }} />
+  );
+}
+```
+
+This will render:
+
+**Welcome to *Recipes*. Visit our *homepage*.**
+
+where `Recipes` is bold and `homepage` is a clickable link.
